@@ -43,12 +43,17 @@ class shipping
         $documentDownloader = new DocumentDownloader($this->connection);
         $labelContent = $documentDownloader->getDocument($labelUrl, 'pdf');
 
-        $documentName = 'delivery_label.pdf';
+        $documentName = 'delivery_label_herbalti.pdf';
         header('Content-Type: application/pdf');
         header('Content-Length: '.strlen( $labelContent ));
         header('Content-disposition: inline; filename="' . $documentName . '"');
         header('Cache-Control: no-cache, max-age=0');
         header('Pragma: no-cache');
         echo $labelContent;
+    }
+
+    function findShippingMethod() {
+        $result = $this->client->shippingMethods()->all();
+        return ($result);
     }
 }
