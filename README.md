@@ -50,6 +50,13 @@ $order->findShippingMethod();
     Pour ensuite trouver un expéditeur en particulier, faites CTRL+F dans votre page de résultat
     puis taper le nom de l'expéditeur OU l'acronyme de votre pays (ex : FR).
 
+- Création et téléchargement automatique de l'étiquette d'envoie :
+```PHP
+$order->createLabel();
+```
+
+    Attention ! Cet appel de fonction doit être impérativement placer APRES l'appel
+    de création de commande. Pas seule.    
 
 ## 📌 Important !
 
